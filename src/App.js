@@ -37,7 +37,16 @@ class App extends React.Component {
   updateInput(input) {
     this.setState({ newItem: input });
   }
-
+  
+  checkTheBox(id) {
+    const list = [...this.state.list];
+    list.map((val)=>{
+        if(val.id===id)
+        val.isDone=!val.isDon
+    });
+    this.setState({ list: updatedlist });
+ }
+  
   render() {
     return (
       <div>
@@ -70,7 +79,7 @@ class App extends React.Component {
                       type="checkbox"
                       name="idDone"
                       checked={item.isDone}
-                      onChange={() => {}}
+                      onChange={() => {checkTheBox(item.id)}}
                     />
                     {item.value}
                     <button
