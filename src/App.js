@@ -38,13 +38,13 @@ class App extends React.Component {
     this.setState({ newItem: input });
   }
   
-  checkTheBox(id) {
+  checkBox(id) {
     const list = [...this.state.list];
     list.map((val)=>{
         if(val.id===id)
-        val.isDone=!val.isDon
+        val.isDone=!val.isDone
     });
-    this.setState({ list: updatedlist });
+    this.setState({ list: list });
  }
   
   render() {
@@ -79,7 +79,7 @@ class App extends React.Component {
                       type="checkbox"
                       name="idDone"
                       checked={item.isDone}
-                      onChange={() => {checkTheBox(item.id)}}
+                      onClick={() => {this.checkBox(item.id)}}
                     />
                     {item.value}
                     <button
